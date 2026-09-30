@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "Pledge": {
+      "title": "Pledge",
+      "description": "Donation pledge or financial support record for the campaign",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "donorName": { "type": "string", "maxLength": 200 },
+        "donorPhone": { "type": "string", "maxLength": 50 },
+        "donorEmail": { "type": "string", "maxLength": 120 },
+        "type": { "type": "string", "enum": ["financeiro", "brinquedos", "voluntario"] },
+        "amount": { "type": "number" },
+        "paymentMethod": { "type": "string", "maxLength": 50 },
+        "message": { "type": "string", "maxLength": 500 },
+        "status": { "type": "string", "enum": ["confirmado", "entregue", "pendente"] },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "donorName", "donorPhone", "type", "status", "createdAt"]
+    },
+    "Contact": {
+      "title": "Contact",
+      "description": "Seu Nome e Número de Telefone / WhatsApp do formulário Fale Conosco",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "enum": ["novo", "contatado", "arquivado"] },
+        "notes": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name", "phone", "createdAt"]
+    },
+    "Registration": {
+      "title": "Registration",
+      "description": "Cadastro de criança e responsável para o sorteio de credenciais da Festa Beneficente",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "guardianName": { "type": "string", "maxLength": 200 },
+        "childName": { "type": "string", "maxLength": 200 },
+        "childBirthDate": { "type": "string", "maxLength": 50 },
+        "cityNeighborhood": { "type": "string", "maxLength": 200 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "referralSource": { "type": "string", "maxLength": 200 },
+        "status": { "type": "string", "enum": ["ativo", "sorteado", "ausente"] },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "guardianName", "childName", "childBirthDate", "cityNeighborhood", "phone", "referralSource", "createdAt"]
+    },
+    "RaffleDraw": {
+      "title": "RaffleDraw",
+      "description": "Registro do sorteio de 20 credenciais e substitutos",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 200 },
+        "drawnAt": { "type": "string", "maxLength": 64 },
+        "totalDrawn": { "type": "number" },
+        "status": { "type": "string", "enum": ["ativo", "finalizado"] }
+      },
+      "required": ["id", "drawnAt"]
+    }
+  },
+  "firestore": {
+    "/pledges/{pledgeId}": {
+      "schema": "Pledge",
+      "description": "Public campaign pledges, donations, and volunteer registrations"
+    },
+    "/contacts/{contactId}": {
+      "schema": "Contact",
+      "description": "Submissions from Fale Conosco with Seu Nome e Número de Telefone / WhatsApp"
+    },
+    "/registrations/{registrationId}": {
+      "schema": "Registration",
+      "description": "Cadastros para a Festa Beneficente (Responsável, Criança, Aniversário, Bairro, WhatsApp, Como soube)"
+    },
+    "/raffles/{raffleId}": {
+      "schema": "RaffleDraw",
+      "description": "Sorteios de credenciais da Festa Beneficente"
+    }
+  }
+}

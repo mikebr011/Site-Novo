@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="rainbowLeft" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1EA8F5" />
+      <stop offset="35%" stop-color="#49C5B6" />
+      <stop offset="70%" stop-color="#FFC300" />
+      <stop offset="100%" stop-color="#FF7A00" />
+    </linearGradient>
+
+    <linearGradient id="rainbowRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2D78" />
+      <stop offset="45%" stop-color="#E51A67" />
+      <stop offset="75%" stop-color="#7B2CBF" />
+      <stop offset="100%" stop-color="#0854A7" />
+    </linearGradient>
+
+    <linearGradient id="adultHand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA872" />
+      <stop offset="60%" stop-color="#F28B47" />
+      <stop offset="100%" stop-color="#E2722C" />
+    </linearGradient>
+
+    <linearGradient id="childHand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE7D6" />
+      <stop offset="60%" stop-color="#FDD4B8" />
+      <stop offset="100%" stop-color="#F5B993" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#FF2D78" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <g filter="url(#softGlow)">
+    <!-- ================= OUTER RAINBOW HEART ================= -->
+    <!-- Left lobe & tip -->
+    <path d="M 300 500 C 160 390, 40 280, 40 160 C 40 75, 110 20, 200 20 C 255 20, 290 55, 300 90"
+          fill="none" stroke="url(#rainbowLeft)" stroke-width="26" stroke-linecap="round" />
+
+    <!-- Right lobe & tip -->
+    <path d="M 300 95 C 315 50, 355 20, 405 20 C 495 20, 560 75, 560 165 C 560 280, 440 395, 300 500"
+          fill="none" stroke="url(#rainbowRight)" stroke-width="26" stroke-linecap="round" />
+
+    <!-- Secondary inner glowing accent lines -->
+    <path d="M 195 45 C 135 45, 75 90, 75 160 C 75 240, 160 330, 260 415"
+          fill="none" stroke="#FFC300" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 16" opacity="0.85" />
+    <path d="M 410 45 C 470 45, 525 90, 525 165 C 525 240, 445 330, 345 415"
+          fill="none" stroke="#FF2D78" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 16" opacity="0.85" />
+
+    <!-- ================= FLOATING CONFETTI & HEARTS ================= -->
+    <!-- Heart: Top-Right Pink -->
+    <g transform="translate(470, 75) scale(1.4)">
+      <path d="M 0 0 C -10 -15, -30 -5, -30 15 C -30 35, 0 55, 0 55 C 0 55, 30 35, 30 15 C 30 -5, 10 -15, 0 0 Z"
+            fill="#FF2D78" />
+    </g>
+
+    <!-- Heart: Center-Right Mini Pink -->
+    <g transform="translate(370, 130) scale(0.9)">
+      <path d="M 0 0 C -8 -12, -22 -4, -22 12 C -22 28, 0 42, 0 42 C 0 42, 22 28, 22 12 C 22 -4, 8 -12, 0 0 Z"
+            fill="#FF2D78" />
+    </g>
+
+    <!-- Heart: Bottom Center Pink -->
+    <g transform="translate(300, 525) scale(0.9)">
+      <path d="M 0 0 C -8 -12, -22 -4, -22 12 C -22 28, 0 42, 0 42 C 0 42, 22 28, 22 12 C 22 -4, 8 -12, 0 0 Z"
+            fill="#FF2D78" />
+    </g>
+
+    <!-- Heart: Right Cyan -->
+    <g transform="translate(485, 290) scale(0.9)">
+      <path d="M 0 0 C -8 -12, -22 -4, -22 12 C -22 28, 0 42, 0 42 C 0 42, 22 28, 22 12 C 22 -4, 8 -12, 0 0 Z"
+            fill="#1EA8F5" />
+    </g>
+
+    <!-- Heart: Left Yellow -->
+    <g transform="translate(140, 300) scale(1.1)">
+      <path d="M 0 0 C -8 -12, -22 -4, -22 12 C -22 28, 0 42, 0 42 C 0 42, 22 28, 22 12 C 22 -4, 8 -12, 0 0 Z"
+            fill="#FFC300" />
+    </g>
+
+    <!-- Confetti Dots & Stars -->
+    <circle cx="95" cy="225" r="9" fill="#1EA8F5" />
+    <circle cx="120" cy="180" r="7" fill="#6CC24A" />
+    <circle cx="510" cy="220" r="8" fill="#FFC300" />
+    <circle cx="490" cy="380" r="7" fill="#6CC24A" />
+    <circle cx="110" cy="380" r="8" fill="#7B2CBF" />
+
+    <!-- Cute Whimsical Accent Dashes under the heart -->
+    <path d="M 230 540 C 255 535, 275 535, 290 540" fill="none" stroke="#FFC300" stroke-width="6" stroke-linecap="round" />
+    <path d="M 310 540 C 325 535, 345 535, 370 540" fill="none" stroke="#1EA8F5" stroke-width="6" stroke-linecap="round" />
+
+    <!-- ================= HANDS (ADULT CLASPING CHILD HAND) ================= -->
+    <g transform="translate(100, 70)">
+      <!-- Adult Forearm & Palm coming from top-left into center -->
+      <path d="M 60 70 C 95 95, 140 145, 160 190 C 180 235, 205 275, 235 295 C 245 285, 255 260, 250 220 C 245 180, 200 115, 140 70 Z"
+            fill="url(#adultHand)" />
+
+      <!-- Adult Thumb -->
+      <path d="M 140 150 C 165 170, 195 190, 225 185 C 235 180, 235 165, 220 155 C 190 140, 165 130, 140 125"
+            fill="url(#adultHand)" stroke="#C85A1D" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Adult Fingers clasped around child hand -->
+      <!-- Index finger -->
+      <path d="M 165 195 C 190 220, 220 250, 255 260 C 270 255, 275 235, 260 215 C 235 190, 200 170, 175 160"
+            fill="url(#adultHand)" stroke="#C85A1D" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Middle finger -->
+      <path d="M 185 230 C 205 255, 235 285, 268 295 C 282 290, 285 270, 270 250 C 245 220, 215 195, 195 185"
+            fill="url(#adultHand)" stroke="#C85A1D" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Ring finger -->
+      <path d="M 195 265 C 215 288, 240 315, 270 320 C 285 315, 285 295, 270 280 C 245 255, 220 235, 205 225"
+            fill="url(#adultHand)" stroke="#C85A1D" stroke-width="3.5" stroke-linecap="round" />
+      <!-- Little finger -->
+      <path d="M 215 295 C 230 315, 250 335, 272 340 C 285 335, 285 320, 272 305 C 255 285, 235 270, 225 260"
+            fill="url(#adultHand)" stroke="#C85A1D" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Child Forearm & Hand reaching upward from bottom right -->
+      <path d="M 330 380 C 305 340, 280 290, 260 250 C 245 220, 225 220, 215 245 C 205 270, 240 325, 275 380 Z"
+            fill="url(#childHand)" stroke="#DF9368" stroke-width="3" stroke-linecap="round" />
+
+      <!-- Child Small Fingers curling into adult hand -->
+      <path d="M 230 215 C 230 198, 242 190, 255 200 C 265 212, 255 230, 240 230"
+            fill="url(#childHand)" stroke="#DF9368" stroke-width="3" />
+      <path d="M 245 200 C 248 185, 265 180, 275 195 C 285 210, 275 225, 260 222"
+            fill="url(#childHand)" stroke="#DF9368" stroke-width="3" />
+      <path d="M 262 195 C 268 180, 285 178, 292 192 C 300 208, 290 220, 275 215"
+            fill="url(#childHand)" stroke="#DF9368" stroke-width="3" />
+      <path d="M 278 195 C 285 182, 300 182, 305 195 C 310 208, 300 218, 288 215"
+            fill="url(#childHand)" stroke="#DF9368" stroke-width="3" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,101 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Admin role check: checks user ID [gvCU8Aw3PVhqFFkM97BRA676qtL2] and authorized admin emails
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.uid == 'gvCU8Aw3PVhqFFkM97BRA676qtL2' ||
+        request.auth.token.email == 'projetompga@gmail.com' ||
+        request.auth.token.email == 'michaelorocha2@gmail.com' ||
+        request.auth.token.email == 'michaelorocha1@gmail.com'
+      );
+    }
+
+    // Global Safety Net with full Read & Manage access for the Admin across ALL data
+    match /{document=**} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Connection test document
+    match /test/connection {
+      allow read: if true;
+    }
+
+    function isValidContact(data) {
+      return data.keys().hasAll(['id', 'name', 'phone', 'createdAt'])
+        && data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() <= 200
+        && data.phone is string && data.phone.size() <= 50
+        && data.createdAt is string && data.createdAt.size() <= 64
+        && (!('status' in data) || data.status in ['novo', 'contatado', 'arquivado'])
+        && (!('notes' in data) || (data.notes is string && data.notes.size() <= 500));
+    }
+
+    function isValidPledge(data) {
+      return data.keys().hasAll(['id', 'donorName', 'donorPhone', 'type', 'status', 'createdAt'])
+        && data.id is string && data.id.size() <= 128
+        && data.donorName is string && data.donorName.size() <= 200
+        && data.donorPhone is string && data.donorPhone.size() <= 50
+        && data.type in ['financeiro', 'brinquedos', 'voluntario']
+        && data.status in ['confirmado', 'entregue', 'pendente']
+        && data.createdAt is string && data.createdAt.size() <= 64
+        && (!('donorEmail' in data) || (data.donorEmail is string && data.donorEmail.size() <= 120))
+        && (!('amount' in data) || data.amount is number)
+        && (!('message' in data) || (data.message is string && data.message.size() <= 500))
+        && (!('paymentMethod' in data) || (data.paymentMethod is string && data.paymentMethod.size() <= 50));
+    }
+
+    function isValidRegistration(data) {
+      return data.keys().hasAll(['id', 'guardianName', 'childName', 'childBirthDate', 'cityNeighborhood', 'phone', 'referralSource', 'createdAt'])
+        && data.id is string && data.id.size() <= 128
+        && data.guardianName is string && data.guardianName.size() <= 200
+        && data.childName is string && data.childName.size() <= 200
+        && data.childBirthDate is string && data.childBirthDate.size() <= 50
+        && data.cityNeighborhood is string && data.cityNeighborhood.size() <= 200
+        && data.phone is string && data.phone.size() <= 50
+        && data.referralSource is string && data.referralSource.size() <= 200
+        && data.createdAt is string && data.createdAt.size() <= 64
+        && (!('status' in data) || data.status in ['ativo', 'sorteado', 'ausente']);
+    }
+
+    // Contacts collection ("Seu Nome e Número de Telefone / WhatsApp" - Fale Conosco)
+    match /contacts/{contactId} {
+      allow get, list: if isAdmin();
+      allow create: if isValidId(contactId) && isValidContact(request.resource.data);
+      allow update: if isValidId(contactId) && (isAdmin() || isValidContact(request.resource.data));
+      allow delete: if isValidId(contactId) && isAdmin();
+    }
+
+    // Pledges collection
+    match /pledges/{pledgeId} {
+      allow get, list: if true || isAdmin();
+      allow create: if isValidId(pledgeId) && isValidPledge(request.resource.data);
+      allow update: if isValidId(pledgeId) && (isAdmin() || isValidPledge(request.resource.data));
+      allow delete: if isAdmin();
+    }
+
+    // Registrations collection (Formulário de Cadastro para Sorteio)
+    match /registrations/{registrationId} {
+      allow get, list: if true || isAdmin();
+      allow create: if isValidId(registrationId) && isValidRegistration(request.resource.data);
+      allow update: if isValidId(registrationId) && (isAdmin() || isValidRegistration(request.resource.data));
+      allow delete: if isAdmin();
+    }
+
+    // Raffles collection (Sorteio de Credenciais)
+    match /raffles/{raffleId} {
+      allow get, list: if true || isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+  }
+}

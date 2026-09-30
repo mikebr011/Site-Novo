@@ -1,0 +1,8 @@
+{
+  "name": "Meu Pequeno Grande Amigo PROJ",
+  "description": "Campanha de doação de brinquedos para o Dia das Crianças — 12 de outubro. Transformando doações em sorrisos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

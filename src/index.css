@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: #ffffff;
+    --color-text-main: #1f2937;
+    --color-title: #0854A7;
+    --color-skin: #FDD4B8;
+    --color-skin-light: #FFF4EC;
+    --color-sky: #1EA8F5;
+    --color-pink: #FF2D78;
+    --color-gold: #FFC300;
+    --color-lime: #6CC24A;
+    --color-purple: #7B2CBF;
+  }
+
+  body {
+    font-family: 'Nunito', 'Nunito Sans', sans-serif;
+    background-color: #ffffff;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+    color: #0854A7;
+  }
+}
+
+/* Custom visual utilities */
+.brand-divider {
+  background: linear-gradient(90deg, #1EA8F5 0%, #FF2D78 40%, #FFC300 75%, #6CC24A 100%);
+  height: 4px;
+  width: 100%;
+}
+
+.brand-divider-thick {
+  background: linear-gradient(90deg, #0854A7 0%, #1EA8F5 35%, #FF2D78 70%, #FFC300 100%);
+  height: 6px;
+  width: 100%;
+}
+
+.skin-tone-bg {
+  background-color: #FDD4B8;
+}
+
+.skin-tone-soft-bg {
+  background-color: #FFF3EB;
+}
+
+/* Playful floating confetti effect */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.animate-float-slow {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatGentle 6s ease-in-out 1.5s infinite;
+}

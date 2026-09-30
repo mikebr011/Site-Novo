@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="100%" height="100%">
+  <defs>
+    <!-- Gradient for Heart Rainbow Stroke -->
+    <linearGradient id="heartRainbowLeft" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1EA8F5" />
+      <stop offset="50%" stop-color="#FFC300" />
+      <stop offset="100%" stop-color="#FF7A00" />
+    </linearGradient>
+    <linearGradient id="heartRainbowRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2D78" />
+      <stop offset="60%" stop-color="#7B2CBF" />
+      <stop offset="100%" stop-color="#0854A7" />
+    </linearGradient>
+    <!-- Adult Hand Skin Gradient -->
+    <linearGradient id="adultHandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA26B" />
+      <stop offset="100%" stop-color="#ED7E3A" />
+    </linearGradient>
+    <!-- Child Hand Skin Gradient -->
+    <linearGradient id="childHandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE0CB" />
+      <stop offset="100%" stop-color="#FDD4B8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Group: Icon Mark (Heart + Hands) -->
+  <g transform="translate(10, 5) scale(0.95)">
+    <!-- Heart Rainbow Outer Waves -->
+    <!-- Left curve of the heart -->
+    <path d="M 58 108 C 28 85, 4 58, 4 34 C 4 14, 20 2, 38 2 C 50 2, 58 10, 58 18"
+          fill="none" stroke="url(#heartRainbowLeft)" stroke-width="8.5" stroke-linecap="round" />
+    
+    <!-- Right curve of the heart -->
+    <path d="M 58 20 C 62 8, 74 2, 86 2 C 104 2, 118 16, 118 36 C 118 60, 92 86, 62 108"
+          fill="none" stroke="url(#heartRainbowRight)" stroke-width="8.5" stroke-linecap="round" />
+
+    <!-- Floating Mini Hearts & Confetti around mark -->
+    <!-- Pink heart top right -->
+    <path d="M 96 16 C 96 11, 100 8, 104 8 C 107 8, 109 10, 110 12 C 111 10, 113 8, 116 8 C 120 8, 124 11, 124 16 C 124 22, 110 30, 110 30 C 110 30, 96 22, 96 16 Z"
+          fill="#FF2D78" />
+    <!-- Yellow dot / star -->
+    <circle cx="20" cy="50" r="4.5" fill="#FFC300" />
+    <!-- Cyan mini heart -->
+    <path d="M 98 72 C 98 68, 101 65, 104 65 C 106 65, 108 67, 109 68 C 110 67, 112 65, 114 65 C 117 65, 120 68, 120 72 C 120 77, 109 84, 109 84 C 109 84, 98 77, 98 72 Z"
+          fill="#1EA8F5" />
+    <!-- Pink mini heart bottom -->
+    <path d="M 52 106 C 52 103, 54 100, 57 100 C 58.5 100, 60 101.5, 60.5 102.5 C 61 101.5, 62.5 100, 64 100 C 67 100, 69 103, 69 106 C 69 110, 60.5 115, 60.5 115 C 60.5 115, 52 110, 52 106 Z"
+          fill="#FF2D78" />
+
+    <!-- Hands: Adult hand holding child hand -->
+    <g transform="translate(18, 14)">
+      <!-- Adult Arm & Palm (coming from upper-left down to center) -->
+      <path d="M 12 10 C 22 18, 32 30, 36 42 C 40 54, 46 64, 52 68 C 55 64, 58 56, 56 46 C 54 36, 42 20, 30 12 Z"
+            fill="url(#adultHandGrad)" />
+      <!-- Adult Fingers clasped -->
+      <path d="M 36 42 C 42 48, 48 54, 56 56 C 60 54, 62 48, 58 44 C 52 38, 44 32, 38 30"
+            fill="url(#adultHandGrad)" stroke="#D96825" stroke-width="1.2" stroke-linecap="round" />
+      <path d="M 44 50 C 49 55, 54 60, 60 62 C 63 60, 64 55, 60 51 C 55 45, 48 40, 44 38"
+            fill="url(#adultHandGrad)" stroke="#D96825" stroke-width="1.2" stroke-linecap="round" />
+
+      <!-- Child Arm & Hand (coming from lower-right reaching up into palm) -->
+      <path d="M 74 86 C 68 76, 62 64, 58 54 C 54 48, 48 48, 46 54 C 44 60, 52 72, 60 84 Z"
+            fill="url(#childHandGrad)" stroke="#E59F74" stroke-width="1.2" stroke-linecap="round" />
+      <!-- Child cute small fingers -->
+      <path d="M 50 48 C 50 44, 53 42, 56 45 C 58 48, 56 52, 52 52"
+            fill="url(#childHandGrad)" stroke="#E59F74" stroke-width="1" />
+      <path d="M 53 45 C 54 41, 58 40, 60 43 C 62 46, 60 50, 56 50"
+            fill="url(#childHandGrad)" stroke="#E59F74" stroke-width="1" />
+      <path d="M 57 43 C 58 39, 62 39, 64 42 C 66 45, 64 49, 60 48"
+            fill="url(#childHandGrad)" stroke="#E59F74" stroke-width="1" />
+    </g>
+  </g>
+
+  <!-- Typography: MEU PEQUENO GRANDE AMIGO -->
+  <g transform="translate(142, 32)" font-family="'Nunito', 'Segoe UI', system-ui, sans-serif" font-weight="900">
+    <text x="0" y="0" font-size="20" fill="#0854A7" letter-spacing="1.5">
+      MEU PEQUENO
+    </text>
+    <text x="0" y="34" font-size="34" fill="#0854A7" letter-spacing="2">
+      GRANDE
+    </text>
+    <text x="0" y="66" font-size="32" fill="#0854A7" letter-spacing="3">
+      AMIGO
+    </text>
+  </g>
+</svg>
